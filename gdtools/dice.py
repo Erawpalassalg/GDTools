@@ -362,5 +362,4 @@ class DicePool:
         """
         Roll the dice pool, get its result.
         """
-        product = list(itertools.product(*self.rngs))
-        return sum(product[random.randrange(len(product) - 1)])
+        return sum(random.choice(rng) for rng in self.rngs) + self.mod
