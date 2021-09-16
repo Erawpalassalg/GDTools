@@ -97,6 +97,9 @@ class Dice:
     def __radd__(self, other: Union[DicePool, Dice, int]) -> DicePool:
         return self.__add__(other)
 
+    def __sub__(self, other: Union[DicePool, Dice, int]) -> DicePool:
+        return DicePool(self) - other
+
     def __mul__(self, other: int) -> DicePool:
         if isinstance(other, int):
             return DicePool(*[Dice(self.min, self.max) for _ in range(other)])
